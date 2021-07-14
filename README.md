@@ -1,32 +1,25 @@
-# StackOver flow data results
-Lets Review what we see in stack over flow data trends from last couple years
+Table of Contents
 
-we will use data available from 2011 to 2020 survey results from across the globe and address business problem solutions
+Installation
+Project Motivation
+Results
+Licensing, Authors, and Acknowledgements
 
+You need to be able to work in a Jupyter Notebook on your computer. The following packages (libraries) need to be installed. You can install these packages via conda or pip.
 
-
-Lets provide some insights from the data available by using Exploratory data analysis using python and jupyter note book.
-
-You can find complete python code from my github url 
-
-Lets Review 3 key elements with in the data
-
-1 ) Survey questions 
-
-Over the period starting from 2011 to 2020 format of response collection is different hence analyzing this type of data will be difficult as there are very few common question across the years .
-
-Also see that from latest years trend is leaning towards more work life balance and social media related question we need to wait for couple years to better understand these .
-
-Survey questions needs to be streamlined for questions that are being replaced keep them and collect survey results as zero response
-
-2) Respondents  regions or countries 
-
-from the data we see top 4 contributors are from USA , India, UnitedKingdom an canda however recent trend suggests that lot of users are coming from Germany as well along with India reaching to second spot
-
-3) Responses
-
-when it comes to responses see USA and India all the way into top spots however for year 6 UK came to top2 
+Numpy
+Pandas
+Matplotlib
+Seaborn
+jupyterthemes
+You will need to download Stackoverflow’s 2017 and 2018 Annual Developer Survey and put in specific folders. You can find the data to download
 
 
+ Interested in using Stackoverflow Developer Survey Data to understand various data elements we have lot of interesting however as confined keeping my self to below items:
 
-Also we can perform deep analytics into this data by profession , age ,income and i will encourage you to start with my note book which can be found in github link 
+What Programming Languages are most used to work and Which Programming Languages are most Required in Stackoverflow survey data of 2017 and 2018 ?
+How does Programming Languages used at work relates with Programming Languages, People Wants to Learn in USA According to Stackoverflow survey data of 2017 and 2018?
+What are the most wanted Programming Languages in USA According to Stackoverflow survey data of 2017 and 2018?
+
+Results
+Please follow link

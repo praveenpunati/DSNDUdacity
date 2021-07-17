@@ -1,6 +1,7 @@
 import json
 import plotly
 import pandas as pd
+import numpy as np
 
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
@@ -43,6 +44,17 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
+    # Distribution of different categories
+    categories_cols = df.columns[4:]
+    categories_cols_cnt = np.array([sum(df[col_name]) for col_name in categories_cols])
+    sorted_indx = np.argsort(categories_cols_cnt)[::-1]
+    categories_cols = categories_cols[sorted_indx]
+    categories_cols_cnt = categories_cols_cnt[sorted_indx]
+    
+    # Message Length Distribution based on Genre
+    genre_names = df['genre'].unique()
+    msg_lngth = np.array([np.mean([len(message) for message in df[df['genre']==cur_genre]['message']]) for cur_genre in genre_names])
+    
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
@@ -58,6 +70,42 @@ def index():
                 'title': 'Distribution of Message Genres',
                 'yaxis': {
                     'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Genre"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=categories_cols,
+                    y=categories_cols_cnt
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Categories"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=genre_names,
+                    y=msg_lngth
+                )
+            ],
+
+            'layout': {
+                'title': 'Message Length Distribution based on Genre',
+                'yaxis': {
+                    'title': "AVG Message Length"
                 },
                 'xaxis': {
                     'title': "Genre"

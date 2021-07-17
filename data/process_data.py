@@ -45,6 +45,8 @@ def clean_data(df):
     df[categories.columns] = categories
     # drop duplicates
     df = df.drop_duplicates()
+    # Replacing 2 with 0 in related column as the other columns distribution for related=2 is same as related=0
+    df['related'].replace(2, 0, inplace=True)
     return df
     
 
